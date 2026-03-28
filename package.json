@@ -2,8 +2,10 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "**Personal Website & Project Showcase**",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
+    "dev": "node src/app.js",
+    "start": "NODE_ENV=production node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +21,8 @@
   },
   "homepage": "https://github.com/AlexGgnu/Portfolio#readme",
   "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
     "express": "^5.2.1"
   }
 }
