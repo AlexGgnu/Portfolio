@@ -1,0 +1,25 @@
+/* MARK: - Header */
+header {
+    position: sticky;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    height: var(--navbar-height);
+    margin: var(--space-lg);
+    border-radius: var(--radius-xl);
+    background-color: var(--color-header-bg);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav > * {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--navbar-height));
+    min-width: calc(var(--navbar-height));
+}

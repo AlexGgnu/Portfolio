@@ -1,0 +1,23 @@
+/* MARK: - Header */
+#brand-name {
+    display: inline-flex;
+    align-items: baseline;
+    font-size: var(--font-xl);
+    padding-inline: calc((var(--navbar-height) - var(--menu-icon-size)) / 2);
+}
+#brand-name .brand-mobile { display: inline-flex; }
+#brand-name .brand-desktop { display: none; }
+#brand-name .brand-strong { font-weight: 700; }
+#brand-name .brand-light { font-weight: 300; }
+
+#menu-toggle { border-radius: var(--radius-sm); }
+#menu-toggle i { font-size: var(--menu-icon-size); }
+
+@media (min-width: 768px) {
+    #brand-name .brand-mobile { display: none; }
+    #brand-name .brand-desktop {
+        display: inline-flex;
+        gap: var(--space-sm);
+    }
+}
+
