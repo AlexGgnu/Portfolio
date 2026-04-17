@@ -10,8 +10,8 @@ header {
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition-property: height;
-    transition-duration: var(--transition-duration);
-    transition-timing-function: var(--transition-easing);
+    transition-duration: var(--motion-duration);
+    transition-timing-function: var(--motion-easing);
 }
 header[data-menu-state="closed"] { height: var(--navbar-height); }
 header[data-menu-state="open"] { height: calc(var(--viewport-height) - 2*var(--space-lg)); }

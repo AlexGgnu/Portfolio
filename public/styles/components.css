@@ -10,16 +10,48 @@
 #brand-name .brand-strong { font-weight: 700; }
 #brand-name .brand-light { font-weight: 300; }
 
+#nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: var(--space-xl);
+    position: absolute;
+    top: var(--navbar-height);
+    left: 0;
+    width: 100%;
+    height: calc(var(--viewport-height) - 2*var(--space-lg) - var(--navbar-height));
+    padding: calc((var(--navbar-height) - var(--menu-icon-size)) / 2);
+    font-size: var(--font-xl);
+}
+
+header[data-menu-state="closed"] #nav-items { visibility: hidden; }
+header[data-menu-state="open"] #nav-items, header[data-menu-state="closing"] #nav-items { visibility: visible; }
+
+header[data-menu-state="open"] #nav-items .item,
+header[data-menu-state="closing"] #nav-items .item {
+    animation-duration: var(--motion-duration);
+    animation-timing-function: var(--motion-easing);
+    animation-fill-mode: both;
+}
+
+header[data-menu-state="open"] #nav-items .item {
+    --entry-offset-x: calc((-1) * (var(--navbar-height) - var(--menu-icon-size)) / 4);
+    animation-name: fade-in-slide-x;
+    animation-delay: calc(var(--motion-delay-step) * var(--item-number));
+}
+
+header[data-menu-state="closing"] #nav-items .item {
+    animation-name: fade-in;
+    animation-direction: reverse;
+}
+
 #menu-toggle i {
     position: absolute;
     font-size: var(--menu-icon-size);
     transition: none;
 }
-header[data-menu-state] #menu-toggle i {
-    transition-property: opacity, transform;
-    transition-duration: var(--transition-duration);
-    transition-timing-function: var(--transition-easing);
-}
+header[data-menu-state] #menu-toggle i { transition: opacity var(--motion-duration) var(--motion-easing); }
 
 #menu-toggle .open-icon { opacity: 1; }
 #menu-toggle .close-icon { opacity: 0; }
