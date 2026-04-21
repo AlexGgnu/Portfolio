@@ -45,14 +45,6 @@
     --viewport-height: 100dvh;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-bg: var(--neutral-900);
-        --color-header-bg: rgba(10, 10, 10, 0.8);
-        --color-text: var(--neutral-0);
-    }
-}
-
 * {
     margin: 0;
     padding: 0;
