@@ -58,11 +58,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-a {
-    text-decoration: none;
-    color: var(--color-text);
-}
+html { scroll-behavior: smooth; }
 
 body {
     height: var(--viewport-height);
@@ -72,9 +68,13 @@ body {
     font-size: var(--font-base);
     font-weight: 400;
     line-height: 1.5;
-    scroll-behavior: smooth;
 
     border: 1px solid red; /* DEBUG */
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text);
 }
 
 button {
@@ -88,6 +88,8 @@ button:focus { outline: none; }
 h1, h2, h3, h4, h5, h6, header { font-family: var(--title-font-family); }
 
 i { color: var(--color-text); }
+
+section[id] { scroll-margin-top: calc(var(--navbar-height) + 2*var(--space-lg)); }
 
 ul { list-style: none; }
 
