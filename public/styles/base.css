@@ -40,7 +40,6 @@
     --motion-easing: ease-in-out;
 
     /* Other */
-    --menu-icon-size: var(--font-xl);
     --navbar-height: 4.5rem;
     --viewport-height: 100dvh;
 }
@@ -78,8 +77,6 @@ button {
 button:focus { outline: none; }
 
 h1, h2, h3, h4, h5, h6, header { font-family: var(--title-font-family); }
-
-i { color: var(--color-text); }
 
 section[id] { scroll-margin-top: calc(var(--navbar-height) + 2*var(--space-lg)); }
 
