@@ -1,0 +1,30 @@
+/* MARK: - Header */
+header {
+    position: sticky;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    height: var(--navbar-height);
+    margin: var(--space-lg);
+    border-radius: var(--radius-xl);
+    background-color: var(--color-header-bg);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition-property: height;
+    transition-duration: var(--motion-duration);
+    transition-timing-function: var(--motion-easing);
+}
+header[data-menu-state="closed"] { height: var(--navbar-height); }
+header[data-menu-state="open"] { height: calc(var(--viewport-height) - 2*var(--space-lg)); }
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav > * {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--navbar-height));
+    min-width: calc(var(--navbar-height));
+}
