@@ -40,3 +40,9 @@ function toggleMenu() {
 
 if (header) isToggleOpen = header.getAttribute('data-menu-state') === 'open';
 if (menuToggleButton && header) menuToggleButton.addEventListener('click', toggleMenu);
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && header.getAttribute('data-menu-state') !== 'closed') {
+        header.setAttribute('data-menu-state', 'closed');
+        isToggleOpen = false;
+    }
+});
