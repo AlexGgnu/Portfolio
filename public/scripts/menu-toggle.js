@@ -1,25 +1,42 @@
 const menuToggleButton = document.getElementById('menu-toggle');
 const header = document.querySelector('header');
-let isToogle = false;
+let isToggleOpen = false;
 let closeTimer = null;
 
-menuToggleButton.addEventListener('click', () => {
-    const menuState = header.getAttribute('data-menu-state');
+function getMotionDurationMs() {
+    if (typeof getCSSVariable === 'function' && typeof toMs === 'function') return toMs(getCSSVariable('--motion-duration'));
+    return 300;
+}
 
-    if(!menuState) header.setAttribute('data-menu-state', !isToogle ? 'open' : 'closed');
+function openMenu() {
+    clearTimeout(closeTimer);
+    header.setAttribute('data-menu-state', 'open');
+    isToggleOpen = true;
+}
+function closeMenu() {
+    if (header.getAttribute('data-menu-state') === 'closed') {
+        isToggleOpen = false;
+        return;
+    }
 
-    if(menuState === 'open') {
-        header.setAttribute('data-menu-state', 'closing');
+    header.setAttribute('data-menu-state', 'closing');
 
-        clearTimeout(closeTimer);
-        closeTimer = setTimeout(() => {
-            if (header.getAttribute('data-menu-state') === 'closing') {
-                header.setAttribute('data-menu-state', 'closed');
-                isToogle = false;
-            }
-        }, toMs(getCSSVariable('--motion-duration')));
-    } else if(menuState === 'closed') {
-        header.setAttribute('data-menu-state', 'open');
-        isToogle = true;
-    };
-});
+    clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => {
+        if (header.getAttribute('data-menu-state') === 'closing') {
+            header.setAttribute('data-menu-state', 'closed');
+            isToggleOpen = false;
+        }
+    }, getMotionDurationMs());
+}
+function toggleMenu() {
+    if (header.getAttribute('data-menu-state') === 'open') {
+        closeMenu();
+        return;
+    }
+
+    openMenu();
+}
+
+if (header) isToggleOpen = header.getAttribute('data-menu-state') === 'open';
+if (menuToggleButton && header) menuToggleButton.addEventListener('click', toggleMenu);
