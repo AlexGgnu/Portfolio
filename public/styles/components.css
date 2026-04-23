@@ -81,6 +81,21 @@ header[data-menu-state="closing"] #nav-items .item {
 header[data-menu-state="open"] #menu-toggle span:first-child { transform: rotate(45deg); }
 header[data-menu-state="open"] #menu-toggle span:last-child { transform: rotate(-45deg); }
 
+/* Social bar */
+#social-bar > a {
+    /* gap: var(--space-sm);
+    font-size: var(--font-lg);
+    color: var(--color-text); */
+    display: inline-flex;
+    align-items: center;
+    writing-mode: sideways-lr;
+    text-orientation: mixed;
+}
+#social-bar > a svg {
+    transform: rotate(-90deg);
+}
+
+
 @media (min-width: 768px) {
     #brand-name .brand-mobile { display: none; }
     #brand-name .brand-desktop {

@@ -1,10 +1,10 @@
 /* MARK: - Header */
 header {
-    position: sticky;
+    position: fixed;
     top: var(--space-lg);
     left: var(--space-lg);
+    width: calc(100% - 2*var(--space-lg));
     height: var(--navbar-height);
-    margin: var(--space-lg);
     border-radius: var(--radius-xl);
     background-color: var(--color-header-bg);
     backdrop-filter: blur(10px);
@@ -27,4 +27,20 @@ nav > * {
     justify-content: center;
     height: calc(var(--navbar-height));
     min-width: calc(var(--navbar-height));
+}
+
+/* Social bar */
+#social-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4xl);
+    position: fixed;
+    top: calc(var(--navbar-height) + 2*var(--space-lg));
+    right: var(--space-lg);
+    width: fit-content;
+    height: calc(100% - var(--navbar-height) - 3*var(--space-lg));
+
+    border: 1px solid red; /* DEBUG */
 }

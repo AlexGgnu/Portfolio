@@ -53,7 +53,9 @@
 html { scroll-behavior: smooth; }
 
 body {
+    width: 100%;
     height: var(--viewport-height);
+    padding: var(--space-lg);
     color: var(--color-text);
     background-color: var(--color-bg);
     font-family: var(--body-font-family);
