@@ -70,7 +70,7 @@ header[data-menu-state="closing"] #nav-items .item {
 }
 #menu-toggle span {
     position: absolute;
-    width: 28%;
+    width: var(--menu-icon-size);
     height: 2px;
     background-color: var(--color-text);
     border-radius: 1px;

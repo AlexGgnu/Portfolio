@@ -40,6 +40,7 @@
     --motion-easing: ease-in-out;
 
     /* Other */
+    --menu-icon-size: var(--font-lg);
     --navbar-height: 4.5rem;
     --viewport-height: 100dvh;
 }
