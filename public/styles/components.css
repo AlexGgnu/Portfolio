@@ -83,17 +83,27 @@ header[data-menu-state="open"] #menu-toggle span:last-child { transform: rotate(
 
 /* Social bar */
 #social-bar > a {
-    /* gap: var(--space-sm);
-    font-size: var(--font-lg);
-    color: var(--color-text); */
     display: inline-flex;
     align-items: center;
-    /* writing-mode: sideways-lr; */
-    /* text-orientation: mixed; */
+    justify-content: center;
+    gap: var(--space-md);
+    padding: 0 var(--space-xl);
+    font-size: var(--font-base);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    border: 1.5px solid var(--color-text-secondary);
+    border-radius: var(--radius-max);
+    transition: color var(--motion-duration) var(--motion-easing), border-color var(--motion-duration) var(--motion-easing);
 }
-/* #social-bar > a svg {
-    transform: rotate(-90deg);
-} */
+#social-bar > a:hover, #social-bar > a:focus {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+#social-bar > a svg {
+    width: var(--font-base);
+    height: var(--font-base);
+    stroke-width: calc(var(--font-base) / 12);
+}
 
 
 @media (min-width: 768px) {
@@ -131,6 +141,7 @@ header[data-menu-state="open"] #menu-toggle span:last-child { transform: rotate(
 
 
     #social-bar > a {
+        padding: var(--space-xl) 0;
         writing-mode: sideways-lr;
         text-orientation: mixed;
     }
