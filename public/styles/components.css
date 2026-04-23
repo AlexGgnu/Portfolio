@@ -88,12 +88,12 @@ header[data-menu-state="open"] #menu-toggle span:last-child { transform: rotate(
     color: var(--color-text); */
     display: inline-flex;
     align-items: center;
-    writing-mode: sideways-lr;
-    text-orientation: mixed;
+    /* writing-mode: sideways-lr; */
+    /* text-orientation: mixed; */
 }
-#social-bar > a svg {
+/* #social-bar > a svg {
     transform: rotate(-90deg);
-}
+} */
 
 
 @media (min-width: 768px) {
@@ -128,4 +128,11 @@ header[data-menu-state="open"] #menu-toggle span:last-child { transform: rotate(
     .item[data-active-item="true"]::after { right: calc(-1 * var(--space-lg)); }
 
     #menu-toggle { display: none; }
+
+
+    #social-bar > a {
+        writing-mode: sideways-lr;
+        text-orientation: mixed;
+    }
+    #social-bar > a svg { transform: rotate(-90deg); }
 }
