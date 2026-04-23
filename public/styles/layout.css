@@ -51,7 +51,7 @@ header[data-menu-state="open"] + #social-bar {
 
 @media (min-width: 768px) {
     #social-bar {
-        flex-direction: column;
+        flex-direction: column-reverse;
         top: calc(var(--navbar-height) + 2*var(--space-lg));
         left: auto;
         right: var(--space-lg);
