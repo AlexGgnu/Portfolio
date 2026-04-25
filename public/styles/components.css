@@ -81,7 +81,7 @@ header[data-menu-state="closing"] #nav-items .item {
 header[data-menu-state="open"] #menu-toggle span:first-child { transform: rotate(45deg); }
 header[data-menu-state="open"] #menu-toggle span:last-child { transform: rotate(-45deg); }
 
-/* Social bar */
+/* MARK: - Social bar */
 #social-bar > a {
     display: inline-flex;
     align-items: center;

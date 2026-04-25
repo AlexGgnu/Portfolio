@@ -29,7 +29,7 @@ nav > * {
     min-width: calc(var(--navbar-height));
 }
 
-/* Social bar */
+/* MARK: - Social bar */
 #social-bar {
     display: flex;
     flex-direction: row;
@@ -47,6 +47,14 @@ nav > * {
 header[data-menu-state="open"] + #social-bar {
     visibility: visible;
     animation: fade-in var(--motion-duration) var(--motion-duration) var(--motion-easing) both;
+}
+
+/* MARK: - Main */
+main {
+    height: calc(100% - var(--navbar-height) - var(--space-lg));
+    margin-top: calc(var(--navbar-height) + var(--space-lg));
+    
+    border: 1px solid orange; /* DEBUG */
 }
 
 @media (min-width: 768px) {
