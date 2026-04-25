@@ -2,3 +2,23 @@
     user-select: none;
     -webkit-user-select: none;
 }
+
+.circle { border-radius: 50%; }
+.circle[data-clip-path] { clip-path: circle(50% at center); }
+.circle[data-bg="dark"] { background-color: var(--neutral-900); }
+.circle[data-bg="light"] { background-color: var(--neutral-100); }
+.circle[data-size="sm"] { width: var(--size-sm); height: var(--size-sm); }
+.circle[data-size="md"] { width: var(--size-md); height: var(--size-md); }
+.circle[data-size="lg"] { width: var(--size-lg); height: var(--size-lg); }
+.circle[data-size="xl"] { width: var(--size-xl); height: var(--size-xl); }
+.circle[data-size="2xl"] { width: var(--size-2xl); height: var(--size-2xl); }
+.circle[data-size="3xl"] { width: var(--size-3xl); height: var(--size-3xl); }
+
+@media (min-width: 768px) {
+    .circle[data-size="sm"] { width: calc(var(--size-sm) * 1.5); height: calc(var(--size-sm) * 1.5); }
+    .circle[data-size="md"] { width: calc(var(--size-md) * 1.5); height: calc(var(--size-md) * 1.5); }
+    .circle[data-size="lg"] { width: calc(var(--size-lg) * 1.5); height: calc(var(--size-lg) * 1.5); }
+    .circle[data-size="xl"] { width: calc(var(--size-xl) * 1.5); height: calc(var(--size-xl) * 1.5); }
+    .circle[data-size="2xl"] { width: calc(var(--size-2xl) * 1.5); height: calc(var(--size-2xl) * 1.5); }
+    .circle[data-size="3xl"] { width: calc(var(--size-3xl) * 1.5); height: calc(var(--size-3xl) * 1.5); }
+}

@@ -105,7 +105,24 @@ header[data-menu-state="open"] #menu-toggle span:last-child { transform: rotate(
     stroke-width: calc(var(--font-base) / 12);
 }
 
+/* MARK: - Hero Section */
+/* #hero-memoji-wrapper .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+#hero-memoji-wrapper .circle[data-bg] { background-color: attr(data-bg); }
+#hero-memoji-wrapper .circle[data-size] { width: attr(data-size); height: attr(data-size); } */
+#hero-memoji-bg { position: relative; }
+#hero-memoji img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 
+/* MARK: - Media Queries */
 @media (min-width: 768px) {
     #brand-name .brand-mobile { display: none; }
     #brand-name .brand-desktop {

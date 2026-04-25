@@ -22,6 +22,14 @@
     --font-xl: 1.5rem;
     --font-2xl: 1.875rem;
 
+    /* Sizes */
+    --size-sm: 1rem;
+    --size-md: 2rem;
+    --size-lg: 4rem;
+    --size-xl: 6rem;
+    --size-2xl: 9rem;
+    --size-3xl: 12rem;
+
     /* Spacing */
     --space-sm: 0.25rem;
     --space-md: 0.5rem;
@@ -46,6 +54,13 @@
     --menu-icon-size: var(--font-lg);
     --navbar-height: 4.5rem;
     --viewport-height: 100dvh;
+
+    /*
+    Screen size breakpoints:
+    - Mobile: 0 - 767px
+    - Tablet: 768px - 1023px
+    - Desktop: 1024px and above
+    */
 }
 
 * {
@@ -65,8 +80,6 @@ body {
     font-size: var(--font-base);
     font-weight: 400;
     line-height: 1.5;
-
-    border: 1px solid red; /* DEBUG */
 }
 
 a {

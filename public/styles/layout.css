@@ -57,6 +57,19 @@ main {
     border: 1px solid orange; /* DEBUG */
 }
 
+/* ---------- Hero Section ---------- */
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+/* MARK: - Media Queries */
 @media (min-width: 768px) {
     #social-bar {
         flex-direction: column-reverse;
