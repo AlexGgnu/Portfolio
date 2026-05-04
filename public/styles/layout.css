@@ -53,7 +53,6 @@ header[data-menu-state="open"] + #social-bar {
 main {
     height: calc(100% - var(--navbar-height) - var(--space-lg));
     margin-top: calc(var(--navbar-height) + var(--space-lg));
-    overflow: hidden;
     
     border: 1px solid orange; /* DEBUG */
 }
