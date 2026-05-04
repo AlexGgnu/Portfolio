@@ -111,6 +111,7 @@ header[data-menu-state="open"] #menu-toggle span:last-child { transform: rotate(
 }
 
 /* MARK: - Hero Section */
+#hero-memoji-wrapper { z-index: 10; }
 #hero-memoji-bg { position: relative; }
 #hero-memoji img {
     width: 100%;
