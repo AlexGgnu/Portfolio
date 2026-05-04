@@ -30,12 +30,12 @@ function clampProgress() {
 function updateProgress(deltaY) {
     progress += deltaY / 600;
     clampProgress();
-    updateHero();
 }
 
 window.addEventListener('wheel', (event) => {
     event.preventDefault();
     updateProgress(event.deltaY);
+    updateHero();
 });
 
 window.addEventListener('touchstart', (event) => startClientY = event.touches[0].clientY);
@@ -45,4 +45,7 @@ window.addEventListener('touchmove', (event) => {
     const deltaY = startClientY - newClientY;
     startClientY = newClientY;
     updateProgress(deltaY);
+    updateHero();
 });
+
+updateHero();
