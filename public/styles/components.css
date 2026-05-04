@@ -1,3 +1,8 @@
+.tagline {
+    font-size: var(--font-base);
+    color: var(--color-text-secondary);
+}
+
 /* MARK: - Header */
 #brand-name {
     display: inline-flex;
@@ -106,15 +111,6 @@ header[data-menu-state="open"] #menu-toggle span:last-child { transform: rotate(
 }
 
 /* MARK: - Hero Section */
-/* #hero-memoji-wrapper .circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-}
-#hero-memoji-wrapper .circle[data-bg] { background-color: attr(data-bg); }
-#hero-memoji-wrapper .circle[data-size] { width: attr(data-size); height: attr(data-size); } */
 #hero-memoji-bg { position: relative; }
 #hero-memoji img {
     width: 100%;
