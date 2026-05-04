@@ -8,10 +8,13 @@ let startClientY = 0;
 
 function updateHero() {
     const scaleMax = Math.hypot(document.documentElement.clientWidth, document.documentElement.clientHeight) / memojiBg.offsetWidth;
+    const memojiBgScale = 1 + (scaleMax - 1) * progress;
 
-    memojiBg.style.transform = `scale(${1 + (scaleMax - 1) * progress})`;
+    memojiBg.style.transform = `scale(${memojiBgScale})`;
     memojiBg.style.borderRadius = `${50 * (1 - progress)}%`;
     if(memojiBg.hasAttribute('data-clip-path')) memojiBg.style.clipPath = `circle(${50 * (1 + progress)}% at center)`;
+
+    memoji.style.transform = `scale(${1/memojiBgScale * (1 - progress)})`;
 }
 
 function clampProgress() {
