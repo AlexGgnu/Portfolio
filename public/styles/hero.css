@@ -1,0 +1,34 @@
+/* MARK: - Main */
+main {
+    padding: var(--space-lg);
+    margin-top: calc(var(--navbar-height) + var(--space-lg));
+    overflow: clip;
+}
+
+/* MARK: - Hero Section */
+#hero {
+    position: relative;
+    width: 100%;
+    height: calc(2 * var(--content-height));
+    text-align: center;
+}
+#hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    position: sticky;
+    top: calc(var(--navbar-height) + 2*var(--space-lg));
+    left: var(--space-lg);
+    width: 100%;
+    height: var(--content-height);
+}
+
+#hero-memoji-wrapper { z-index: 10; }
+#hero-memoji-bg { position: relative; }
+#hero-memoji img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
