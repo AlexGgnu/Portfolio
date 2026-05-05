@@ -7,6 +7,9 @@ const tagline = document.getElementById('hero-tagline');
 let progress = 0;
 let scrollableHeight, radius, memojiBgCenter, headerBottomOffset, titleTopOffset, titleBottomOffset, taglineTopOffset, taglineBottomOffset;
 
+const offsetToProgress = (offset) => (offset / radius - 1) / (scaleMax - 1);
+const getAnimationProgress = (progress, start, end) => clamp((progress - start) / (end - start), 0, 1);
+
 function initHero() {
     scrollableHeight = hero.offsetHeight - window.innerHeight;
     radius = memojiBg.offsetWidth / 2;
@@ -32,20 +35,20 @@ function updateHero() {
     memoji.style.transform = `scale(${1/memojiBgScale * (1 - progress)})`;
 
     // NOTE: Fade out the text
-    const titleStart = (titleTopOffset / radius - 1) / (scaleMax - 1);
-    const titleEnd = (titleBottomOffset / radius - 1) / (scaleMax - 1);
-    const taglineStart = (taglineTopOffset / radius - 1) / (scaleMax - 1);
-    const taglineEnd = (taglineBottomOffset / radius - 1) / (scaleMax - 1);
+    const titleStart = offsetToProgress(titleTopOffset);
+    const titleEnd = offsetToProgress(titleBottomOffset);
+    const taglineStart = offsetToProgress(taglineTopOffset);
+    const taglineEnd = offsetToProgress(taglineBottomOffset);
 
-    const titleProgress = clamp((progress - titleStart) / (titleEnd - titleStart), 0, 1);
-    const taglineProgress = clamp((progress - taglineStart) / (taglineEnd - taglineStart), 0, 1);
+    const titleProgress = getAnimationProgress(progress, titleStart, titleEnd);
+    const taglineProgress = getAnimationProgress(progress, taglineStart, taglineEnd);
 
     title.style.opacity = 1 - titleProgress;
     tagline.style.opacity = 1 - taglineProgress;
 
     // NOTE: Fade header background and text color light to dark
-    const headerStart = (headerBottomOffset / radius - 1) / (scaleMax - 1);
-    const headerProgress = clamp((progress - headerStart) / (1 - headerStart), 0, 1);
+    const headerStart = offsetToProgress(headerBottomOffset);
+    const headerProgress = getAnimationProgress(progress, headerStart, 1);
 
     const headerBgR = Math.round(247 - (247 - 10) * headerProgress);
     const headerBgG = Math.round(247 - (247 - 10) * headerProgress);
