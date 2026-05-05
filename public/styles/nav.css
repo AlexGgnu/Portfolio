@@ -61,21 +61,53 @@ nav > * {
 header[data-menu-state="closed"] #nav-items { visibility: hidden; }
 header[data-menu-state="open"] #nav-items, header[data-menu-state="closing"] #nav-items { visibility: visible; }
 
-.item { position: relative; }
+.item {
+    position: relative;
+    transition: padding-inline var(--speed-motion-duration) var(--motion-easing);;
+}
+.item:hover { padding-inline: var(--space-lg); }
 .item[data-active-item="true"] { padding-inline: var(--space-lg); }
-.item[data-active-item="true"]::before, .item[data-active-item="true"]::after {
+
+.item::before, .item::after {
     position: absolute;
     top: anchor(center);
     color: var(--green-500);
+    opacity: 0;
+    transition: opacity var(--speed-motion-duration) var(--motion-easing);
 }
-.item[data-active-item="true"]::before {
+.item::before {
     content: '[';
     left: 0;
 }
-.item[data-active-item="true"]::after {
+.item::after {
     content: ']';
     right: 0;
 }
+.item[data-active-item="true"]::before, .item[data-active-item="true"]::after { opacity: 1; }
+.item:not([data-active-item="true"]):hover::before { animation: fade-in-slide-x var(--speed-motion-duration) var(--motion-easing) both; }
+.item:not([data-active-item="true"]):hover::after { animation: fade-in-slide-x-reverse var(--speed-motion-duration) var(--motion-easing) both; }
+
+@keyframes fade-in-slide-x {
+    from {
+        opacity: 0;
+        transform: translateX(var(--space-lg));
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fade-in-slide-x-reverse {
+    from {
+        opacity: 0;
+        transform: translateX(calc(-1 * var(--space-lg)));
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 header[data-menu-state="open"] #nav-items .item,
 header[data-menu-state="closing"] #nav-items .item {
     animation-duration: var(--motion-duration);
