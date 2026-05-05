@@ -54,6 +54,7 @@
     --menu-icon-size: var(--font-lg);
     --navbar-height: 4.5rem;
     --viewport-height: 100dvh;
+    --content-height: calc(var(--viewport-height) - var(--navbar-height) - 3*var(--space-lg));
 
     /*
     Screen size breakpoints:
@@ -68,10 +69,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-html {
-    scroll-behavior: smooth;
-    overflow: hidden;
-}
+html { scroll-behavior: smooth; }
 
 body {
     width: 100%;
@@ -83,7 +81,6 @@ body {
     font-size: var(--font-base);
     font-weight: 400;
     line-height: 1.5;
-    overflow: hidden;
 }
 
 a {
