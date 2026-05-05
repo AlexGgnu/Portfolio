@@ -70,10 +70,11 @@ header[data-menu-state="open"] #nav-items, header[data-menu-state="closing"] #na
 
 .item::before, .item::after {
     position: absolute;
-    top: anchor(center);
     color: var(--green-500);
     opacity: 0;
-    transition: opacity var(--speed-motion-duration) var(--motion-easing);
+    transform: translateX(0);
+    transition: opacity var(--speed-motion-duration) var(--motion-easing),
+                transform var(--speed-motion-duration) var(--motion-easing);
 }
 .item::before {
     content: '[';
@@ -84,29 +85,9 @@ header[data-menu-state="open"] #nav-items, header[data-menu-state="closing"] #na
     right: 0;
 }
 .item[data-active-item="true"]::before, .item[data-active-item="true"]::after { opacity: 1; }
-.item:not([data-active-item="true"]):hover::before { animation: fade-in-slide-x var(--speed-motion-duration) var(--motion-easing) both; }
-.item:not([data-active-item="true"]):hover::after { animation: fade-in-slide-x-reverse var(--speed-motion-duration) var(--motion-easing) both; }
-
-@keyframes fade-in-slide-x {
-    from {
-        opacity: 0;
-        transform: translateX(var(--space-lg));
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-@keyframes fade-in-slide-x-reverse {
-    from {
-        opacity: 0;
-        transform: translateX(calc(-1 * var(--space-lg)));
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+.item:not([data-active-item="true"]):hover::before, .item:not([data-active-item="true"]):hover::after { opacity: 0.5; }
+.item:not([data-active-item="true"]):hover::before { transform: translateX(calc(-1 * var(--space-lg))); }
+.item:not([data-active-item="true"]):hover::after { transform: translateX(var(--space-lg)); }
 
 header[data-menu-state="open"] #nav-items .item,
 header[data-menu-state="closing"] #nav-items .item {
@@ -197,8 +178,7 @@ header[data-menu-state="open"] + #social-bar {
     }
     
     /* NOTE: Navigation items */
-    #nav-items,
-    header[data-menu-state] #nav-items {
+    #nav-items, header[data-menu-state] #nav-items {
         flex-direction: row;
         gap: var(--space-4xl);
         position: static;
@@ -209,13 +189,12 @@ header[data-menu-state="open"] + #social-bar {
         font-size: var(--font-base);
         visibility: visible;
     }
-    .item,
-    .item a {
+    .item, .item a {
         display: flex;
         height: 100%;
         align-items: center;
     }
-    .item[data-active-item="true"] { padding: 0; }
+    .item, .item:hover, .item[data-active-item="true"] { padding: 0; }
     .item[data-active-item="true"]::before { left: calc(-1 * var(--space-lg)); }
     .item[data-active-item="true"]::after { right: calc(-1 * var(--space-lg)); }
 
