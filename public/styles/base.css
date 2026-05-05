@@ -10,7 +10,6 @@
     --color-accent: var(--green-500);
     --color-bg: var(--neutral-0);
     --color-header-bg: rgba(247, 247, 247, 0.8);
-    --color-text: var(--neutral-900);
     --color-text-secondary: var(--neutral-300);
 
     /* Typography */
@@ -21,6 +20,14 @@
     --font-lg: 1.125rem;
     --font-xl: 1.5rem;
     --font-2xl: 1.875rem;
+
+    /* Sizes */
+    --size-sm: 1rem;
+    --size-md: 2rem;
+    --size-lg: 4rem;
+    --size-xl: 6rem;
+    --size-2xl: 9rem;
+    --size-3xl: 12rem;
 
     /* Spacing */
     --space-sm: 0.25rem;
@@ -46,6 +53,14 @@
     --menu-icon-size: var(--font-lg);
     --navbar-height: 4.5rem;
     --viewport-height: 100dvh;
+    --content-height: calc(var(--viewport-height) - var(--navbar-height) - 3*var(--space-lg));
+
+    /*
+    Screen size breakpoints:
+    - Mobile: 0 - 767px
+    - Tablet: 768px - 1023px
+    - Desktop: 1024px and above
+    */
 }
 
 * {
@@ -58,16 +73,14 @@ html { scroll-behavior: smooth; }
 body {
     width: 100%;
     height: var(--viewport-height);
-    padding: var(--space-lg);
     color: var(--color-text);
     background-color: var(--color-bg);
     font-family: var(--body-font-family);
     font-size: var(--font-base);
     font-weight: 400;
     line-height: 1.5;
-
-    border: 1px solid red; /* DEBUG */
 }
+body:has(header:is([data-menu-state="open"], [data-menu-state="closing"])) { overflow: hidden; }
 
 a {
     text-decoration: none;

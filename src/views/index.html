@@ -13,6 +13,7 @@
         <script src="/scripts/shared.js" defer></script>
         <script src="/scripts/menu-toggle.js" defer></script>
         <script src="/scripts/active-item.js" defer></script>
+        <script src="/scripts/hero.js" defer></script>
     </head>
     <body>
         <header class="no-select" data-menu-state="closed">
@@ -57,6 +58,22 @@
                 <span>GitHub</span>
             </a>
         </aside>
-        <main></main>
+        <main>
+            <section id="hero" class="no-select">
+                <div id="hero-content">
+                    <div id="hero-memoji-wrapper">
+                        <div id="hero-memoji-bg" class="circle" data-bg="dark" data-size="2xl">
+                            <figure id="hero-memoji">
+                                <img src="/images/memojis/memoji_wink.png" alt="Alexis Memoji with a MacBook">
+                            </figure>
+                        </div>
+                    </div>
+                    <div id="hero-text-wrapper">
+                        <h1 id="hero-title">Hi, I'm Alex!</h1>
+                        <p id="hero-tagline" class="tagline">Built with intent & simplicity.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
     </body>
 </html>

@@ -51,12 +51,32 @@ header[data-menu-state="open"] + #social-bar {
 
 /* MARK: - Main */
 main {
-    height: calc(100% - var(--navbar-height) - var(--space-lg));
+    padding: var(--space-lg);
     margin-top: calc(var(--navbar-height) + var(--space-lg));
-    
-    border: 1px solid orange; /* DEBUG */
+    overflow: clip;
 }
 
+/* ---------- Hero Section ---------- */
+#hero {
+    position: relative;
+    width: 100%;
+    height: calc(2 * var(--content-height));
+    text-align: center;
+}
+#hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    position: sticky;
+    top: calc(var(--navbar-height) + 2*var(--space-lg));
+    left: var(--space-lg);
+    width: 100%;
+    height: var(--content-height);
+}
+
+/* MARK: - Media Queries */
 @media (min-width: 768px) {
     #social-bar {
         flex-direction: column-reverse;

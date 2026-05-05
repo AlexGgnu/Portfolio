@@ -1,3 +1,8 @@
+.tagline {
+    font-size: var(--font-base);
+    color: var(--color-text-secondary);
+}
+
 /* MARK: - Header */
 #brand-name {
     display: inline-flex;
@@ -105,7 +110,16 @@ header[data-menu-state="open"] #menu-toggle span:last-child { transform: rotate(
     stroke-width: calc(var(--font-base) / 12);
 }
 
+/* MARK: - Hero Section */
+#hero-memoji-wrapper { z-index: 10; }
+#hero-memoji-bg { position: relative; }
+#hero-memoji img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 
+/* MARK: - Media Queries */
 @media (min-width: 768px) {
     #brand-name .brand-mobile { display: none; }
     #brand-name .brand-desktop {
