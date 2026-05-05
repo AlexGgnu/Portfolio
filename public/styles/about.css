@@ -1,0 +1,6 @@
+/* MARK: - About Section */
+#about {
+    position: relative;
+    color: white;
+    height: var(--content-height);
+}

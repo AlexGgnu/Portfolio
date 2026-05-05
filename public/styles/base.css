@@ -83,6 +83,14 @@ body {
 }
 body:has(header:is([data-menu-state="open"], [data-menu-state="closing"])) { overflow: hidden; }
 
+main {
+    padding: var(--space-lg);
+    margin-top: calc(var(--navbar-height) + var(--space-lg));
+    overflow: clip;
+}
+
+section[id] { scroll-margin-top: calc(var(--navbar-height) + 2*var(--space-lg)); }
+
 a {
     text-decoration: none;
     color: var(--color-text);
@@ -97,8 +105,6 @@ button {
 button:focus { outline: none; }
 
 h1, h2, h3, h4, h5, h6, header { font-family: var(--title-font-family); }
-
-section[id] { scroll-margin-top: calc(var(--navbar-height) + 2*var(--space-lg)); }
 
 ul { list-style: none; }
 
