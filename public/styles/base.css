@@ -10,6 +10,7 @@
     --color-accent: var(--green-500);
     --color-bg: var(--neutral-0);
     --color-header-bg: rgba(247, 247, 247, 0.8);
+    --color-text: var(--neutral-900);
     --color-text-secondary: var(--neutral-300);
 
     /* Typography */
@@ -83,6 +84,14 @@ body {
 }
 body:has(header:is([data-menu-state="open"], [data-menu-state="closing"])) { overflow: hidden; }
 
+main {
+    padding: var(--space-lg);
+    margin-top: calc(var(--navbar-height) + var(--space-lg));
+    overflow: clip;
+}
+
+section[id] { scroll-margin-top: calc(var(--navbar-height) + 2*var(--space-lg)); }
+
 a {
     text-decoration: none;
     color: var(--color-text);
@@ -98,22 +107,9 @@ button:focus { outline: none; }
 
 h1, h2, h3, h4, h5, h6, header { font-family: var(--title-font-family); }
 
-section[id] { scroll-margin-top: calc(var(--navbar-height) + 2*var(--space-lg)); }
-
 ul { list-style: none; }
 
 /* MARK: - Utility Classes */
-.circle { border-radius: 50%; }
-.circle[data-clip-path] { clip-path: circle(50% at center); }
-.circle[data-bg="dark"] { background-color: var(--neutral-900); }
-.circle[data-bg="light"] { background-color: var(--neutral-100); }
-.circle[data-size="sm"] { width: var(--size-sm); height: var(--size-sm); }
-.circle[data-size="md"] { width: var(--size-md); height: var(--size-md); }
-.circle[data-size="lg"] { width: var(--size-lg); height: var(--size-lg); }
-.circle[data-size="xl"] { width: var(--size-xl); height: var(--size-xl); }
-.circle[data-size="2xl"] { width: var(--size-2xl); height: var(--size-2xl); }
-.circle[data-size="3xl"] { width: var(--size-3xl); height: var(--size-3xl); }
-
 .no-select {
     user-select: none;
     -webkit-user-select: none;
@@ -122,16 +118,6 @@ ul { list-style: none; }
 .tagline {
     font-size: var(--font-base);
     color: var(--color-text-secondary);
-}
-
-/* MARK: - Media Queries */
-@media (min-width: 768px) {
-    .circle[data-size="sm"] { width: calc(var(--size-sm) * 1.5); height: calc(var(--size-sm) * 1.5); }
-    .circle[data-size="md"] { width: calc(var(--size-md) * 1.5); height: calc(var(--size-md) * 1.5); }
-    .circle[data-size="lg"] { width: calc(var(--size-lg) * 1.5); height: calc(var(--size-lg) * 1.5); }
-    .circle[data-size="xl"] { width: calc(var(--size-xl) * 1.5); height: calc(var(--size-xl) * 1.5); }
-    .circle[data-size="2xl"] { width: calc(var(--size-2xl) * 1.5); height: calc(var(--size-2xl) * 1.5); }
-    .circle[data-size="3xl"] { width: calc(var(--size-3xl) * 1.5); height: calc(var(--size-3xl) * 1.5); }
 }
 
 /* MARK: - Animations */
