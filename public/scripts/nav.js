@@ -1,12 +1,9 @@
-const menuToggleButton = document.getElementById('menu-toggle');
 const header = document.querySelector('header');
+const navItems = document.querySelectorAll('#nav-items .item');
+const menuToggleButton = document.getElementById('menu-toggle');
+
 let isToggleOpen = false;
 let closeTimer = null;
-
-function getMotionDurationMs() {
-    if (typeof getCSSVariable === 'function' && typeof toMs === 'function') return toMs(getCSSVariable('--motion-duration'));
-    return 300;
-}
 
 function openMenu() {
     clearTimeout(closeTimer);
@@ -27,7 +24,7 @@ function closeMenu() {
             header.setAttribute('data-menu-state', 'closed');
             isToggleOpen = false;
         }
-    }, getMotionDurationMs());
+    }, toMs(getCSSVariable('--motion-duration')));
 }
 function toggleMenu() {
     if (header.getAttribute('data-menu-state') === 'open') {
@@ -38,6 +35,19 @@ function toggleMenu() {
     openMenu();
 }
 
+function setActiveItem() {
+    const currentPath = window.location.hash === "" ? "#hero" : window.location.hash;
+
+    navItems.forEach(item => {
+        const itemPath = item.querySelector('a').getAttribute('href');
+
+        if (itemPath === currentPath) {
+            item.setAttribute('data-active-item', 'true');
+            if (window.innerWidth < 768) closeMenu();
+        } else item.removeAttribute('data-active-item');
+    });
+}
+
 if (header) isToggleOpen = header.getAttribute('data-menu-state') === 'open';
 if (menuToggleButton && header) menuToggleButton.addEventListener('click', toggleMenu);
 window.addEventListener('resize', () => {
@@ -46,3 +56,6 @@ window.addEventListener('resize', () => {
         isToggleOpen = false;
     }
 });
+
+window.addEventListener('DOMContentLoaded', setActiveItem);
+window.addEventListener('popstate', setActiveItem);
