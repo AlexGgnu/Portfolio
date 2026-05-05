@@ -60,7 +60,7 @@ main {
 #hero {
     position: relative;
     width: 100%;
-    height: calc(3 * var(--content-height));
+    height: calc(2 * var(--content-height));
     text-align: center;
 }
 #hero-content {
