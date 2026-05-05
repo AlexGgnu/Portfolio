@@ -5,13 +5,14 @@ const title = document.getElementById('hero-title');
 const tagline = document.getElementById('hero-tagline');
 
 let progress = 0;
-let radius, memojiBgCenter, titleTopOffset, titleBottomOffset, taglineTopOffset, taglineBottomOffset, scrollableHeight;
+let scrollableHeight, radius, memojiBgCenter, headerBottomOffset, titleTopOffset, titleBottomOffset, taglineTopOffset, taglineBottomOffset;
 
 function initHero() {
     scrollableHeight = hero.offsetHeight - window.innerHeight;
     radius = memojiBg.offsetWidth / 2;
 
     memojiBgCenter = memojiBg.getBoundingClientRect().top + radius;
+    headerBottomOffset = memojiBgCenter - header.getBoundingClientRect().bottom;
     titleTopOffset = title.getBoundingClientRect().top - memojiBgCenter;
     titleBottomOffset = title.getBoundingClientRect().bottom - memojiBgCenter;
     taglineTopOffset = tagline.getBoundingClientRect().top - memojiBgCenter;
@@ -41,6 +42,19 @@ function updateHero() {
 
     title.style.opacity = 1 - titleProgress;
     tagline.style.opacity = 1 - taglineProgress;
+
+    // NOTE: Fade header background and text color light to dark
+    const headerStart = (headerBottomOffset / radius - 1) / (scaleMax - 1);
+    const headerProgress = clamp((progress - headerStart) / (1 - headerStart), 0, 1);
+
+    const headerBgR = Math.round(247 - (247 - 10) * headerProgress);
+    const headerBgG = Math.round(247 - (247 - 10) * headerProgress);
+    const headerBgB = Math.round(247 - (247 - 10) * headerProgress);
+    header.style.backgroundColor = `rgba(${headerBgR}, ${headerBgG}, ${headerBgB}, 0.8)`;
+
+    const textColor = Math.round(26 + (255 - 26) * headerProgress);
+    header.style.color = `rgb(${textColor}, ${textColor}, ${textColor})`;
+    menuToggleButton.querySelectorAll('span').forEach(span => span.style.backgroundColor = `rgb(${textColor}, ${textColor}, ${textColor})`);
 }
 
 window.addEventListener('scroll', () => {
