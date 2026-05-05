@@ -7,7 +7,7 @@ const tagline = document.getElementById('hero-tagline');
 let progress = 0;
 let scrollableHeight, radius, memojiBgCenter, headerBottomOffset, titleTopOffset, titleBottomOffset, taglineTopOffset, taglineBottomOffset;
 
-const offsetToProgress = (offset) => (offset / radius - 1) / (scaleMax - 1);
+const offsetToProgress = (offset, scaleMax) => (offset / radius - 1) / (scaleMax - 1);
 const getAnimationProgress = (progress, start, end) => clamp((progress - start) / (end - start), 0, 1);
 
 function initHero() {
@@ -35,10 +35,10 @@ function updateHero() {
     memoji.style.transform = `scale(${1/memojiBgScale * (1 - progress)})`;
 
     // NOTE: Fade out the text
-    const titleStart = offsetToProgress(titleTopOffset);
-    const titleEnd = offsetToProgress(titleBottomOffset);
-    const taglineStart = offsetToProgress(taglineTopOffset);
-    const taglineEnd = offsetToProgress(taglineBottomOffset);
+    const titleStart = offsetToProgress(titleTopOffset, scaleMax);
+    const titleEnd = offsetToProgress(titleBottomOffset, scaleMax);
+    const taglineStart = offsetToProgress(taglineTopOffset, scaleMax);
+    const taglineEnd = offsetToProgress(taglineBottomOffset, scaleMax);
 
     const titleProgress = getAnimationProgress(progress, titleStart, titleEnd);
     const taglineProgress = getAnimationProgress(progress, taglineStart, taglineEnd);
@@ -47,7 +47,7 @@ function updateHero() {
     tagline.style.opacity = 1 - taglineProgress;
 
     // NOTE: Fade header background and text color light to dark
-    const headerStart = offsetToProgress(headerBottomOffset);
+    const headerStart = offsetToProgress(headerBottomOffset, scaleMax);
     const headerProgress = getAnimationProgress(progress, headerStart, 1);
 
     const headerBgR = Math.round(247 - (247 - 10) * headerProgress);
@@ -58,6 +58,8 @@ function updateHero() {
     const textColor = Math.round(26 + (255 - 26) * headerProgress);
     header.style.color = `rgb(${textColor}, ${textColor}, ${textColor})`;
     menuToggleButton.querySelectorAll('span').forEach(span => span.style.backgroundColor = `rgb(${textColor}, ${textColor}, ${textColor})`);
+
+    document.body.style.backgroundColor = progress >= 1 ? 'var(--neutral-900)' : 'var(--neutral-0)';
 }
 
 window.addEventListener('scroll', () => {
