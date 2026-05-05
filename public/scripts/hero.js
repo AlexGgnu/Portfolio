@@ -43,15 +43,9 @@ function updateHero() {
     tagline.style.opacity = 1 - taglineProgress;
 }
 
-function clampProgress() {
-    if (progress < 0) progress = 0;
-    if (progress > 1) progress = 1;
-}
-
 window.addEventListener('scroll', () => {
     scrollableHeight = hero.offsetHeight - window.innerHeight;
-    progress = window.scrollY / scrollableHeight;
-    clampProgress();
+    progress = clamp(window.scrollY / scrollableHeight, 0, 1);
     updateHero();
 });
 window.addEventListener('load', () => {
