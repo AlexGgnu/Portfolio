@@ -51,7 +51,9 @@ header[data-menu-state="open"] + #social-bar {
 
 /* MARK: - Main */
 main {
+    padding: var(--space-lg);
     margin-top: calc(var(--navbar-height) + var(--space-lg));
+    overflow: clip;
 }
 
 /* ---------- Hero Section ---------- */
