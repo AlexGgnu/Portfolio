@@ -98,11 +98,11 @@ header[data-menu-state="open"] #menu-toggle span:last-child { transform: rotate(
     text-transform: uppercase;
     border: 1.5px solid var(--color-text-secondary);
     border-radius: var(--radius-max);
-    transition: color var(--motion-duration) var(--motion-easing), border-color var(--motion-duration) var(--motion-easing);
 }
 #social-bar > a:hover, #social-bar > a:focus {
     color: var(--color-accent);
     border-color: var(--color-accent);
+    transition: color var(--motion-duration) var(--motion-easing), border-color var(--motion-duration) var(--motion-easing);
 }
 #social-bar > a svg {
     width: var(--font-base);
