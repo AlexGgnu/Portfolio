@@ -80,6 +80,7 @@ body {
     font-weight: 400;
     line-height: 1.5;
 }
+body:has(header:is([data-menu-state="open"], [data-menu-state="closing"])) { overflow: hidden; }
 
 a {
     text-decoration: none;
