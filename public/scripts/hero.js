@@ -59,7 +59,7 @@ function updateHero() {
     header.style.color = `rgb(${textColor}, ${textColor}, ${textColor})`;
     menuToggleButton.querySelectorAll('span').forEach(span => span.style.backgroundColor = `rgb(${textColor}, ${textColor}, ${textColor})`);
 
-    document.body.style.backgroundColor = progress >= 1 ? 'var(--neutral-900)' : 'var(--neutral-0)';
+    progress >= 1 ? document.documentElement.setAttribute('theme', 'dark') : document.documentElement.setAttribute('theme', 'light');
 }
 
 window.addEventListener('scroll', () => {
